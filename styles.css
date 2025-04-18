@@ -1,0 +1,38 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #00eaff;
+  margin-bottom: 30px;
+}
+
+.stream-box {
+  background: #1f1f1f;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.stream-box a {
+  color: #00eaff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.stream-box a:hover {
+  text-decoration: underline;
+}

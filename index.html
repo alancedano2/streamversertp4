@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>StreamVerse TP4</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script>
+    window.onload = () => {
+      const listContainer = document.getElementById('stream-list');
+      Object.keys(streams).forEach(key => {
+        const div = document.createElement('div');
+        div.className = 'stream-box';
+        div.innerHTML = `<a href="player.html?stream=${key}">${streams[key].title}</a>`;
+        listContainer.appendChild(div);
+      });
+    };
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Canales en Vivo</h1>
+    <div id="stream-list"></div>
+  </div>
+</body>
+</html>
