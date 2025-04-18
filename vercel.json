@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/stream=:stream",
+      "destination": "/index.html?stream=:stream"
+    }
+  ]
+}
