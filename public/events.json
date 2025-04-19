@@ -1,14 +1,14 @@
 [
   {
-    "id": "kq105",
+    "id": "netflix1",
     "title": "Netflix Event 1",
     "description": "Transmisión en vivo especial",
     "thumbnail": "/thumb1.jpg"
   },
   {
-    "id": "kq106",
-    "title": "Netflix Event 2",
-    "description": "Transmisión en vivo secundaria",
+    "id": "espn1",
+    "title": "ESPN Live",
+    "description": "Partido de la NBA en directo",
     "thumbnail": "/thumb2.jpg"
   }
 ]
