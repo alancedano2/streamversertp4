@@ -1,0 +1,14 @@
+[
+  {
+    "id": "kq105",
+    "title": "Netflix Event 1",
+    "description": "Transmisión en vivo especial",
+    "thumbnail": "/thumb1.jpg"
+  },
+  {
+    "id": "kq106",
+    "title": "Netflix Event 2",
+    "description": "Transmisión en vivo secundaria",
+    "thumbnail": "/thumb2.jpg"
+  }
+]
