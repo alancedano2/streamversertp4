@@ -1,53 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Video.js IPTV Proxy</title>
-  <link href="https://vjs.zencdn.net/7.21.1/video-js.css" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0;
-      background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .video-js {
-      width: 80vw;
-      max-width: 720px;
-      aspect-ratio: 16 / 9;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Clappr IPTV Player</title>
+<script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+<style>
+  #player {
+    width: 100%;
+    max-width: 720px;
+    height: 405px; /* 16:9 ratio */
+    margin: auto;
+  }
+</style>
 </head>
 <body>
 
-  <video
-    id="my-video"
-    class="video-js vjs-default-skin"
-    controls
-    autoplay
-    muted
-    preload="auto"
-  ></video>
+<div id="player"></div>
 
-  <script src="https://vjs.zencdn.net/7.21.1/video.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/videojs-http-streaming@2.13.3/dist/videojs-http-streaming.min.js"></script>
-
-  <script>
-    const player = videojs('my-video', {}, function() {
-      this.src({
-        src: "https://iptv-proxystreamverse.fraelvillegasplay9.workers.dev/?url=http://playtvpremium.xyz:8080/live/595991351780py/090325play/878883.m3u8",
-        type: 'application/x-mpegURL'
-      });
-
-      this.on('error', () => {
-        console.error('Error al cargar el stream');
-        alert('Error: No se pudo cargar el stream.');
-      });
-    });
-  </script>
+<script>
+  const player = new Clappr.Player({
+    source: 'https://iptv-proxystreamverse.fraelvillegasplay9.workers.dev/?url=http://playtvpremium.xyz:8080/live/595991351780py/090325play/878883.m3u8',
+    parentId: '#player',
+    autoPlay: true,
+    width: '100%',
+    height: '100%',
+    mute: false,
+    mediacontrol: {seekbar: "#000", buttons: "#000"},
+    // Puedes agregar plugins o configuraciones adicionales aquí
+  });
+</script>
 
 </body>
 </html>
