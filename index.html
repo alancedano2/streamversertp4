@@ -7,21 +7,27 @@
   <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
   <style>
     body {
-      margin: 0;
-      background: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      margin: 0; 
+      background: #000; 
+      color: #fff; 
+      font-family: Arial, sans-serif; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
       padding: 1rem;
+      height: 100vh;
+      box-sizing: border-box;
     }
     #player {
       width: 100%;
       max-width: 720px;
-      height: 405px; /* 16:9 */
-      margin-bottom: 1rem;
+      aspect-ratio: 16 / 9;
       background: #222;
+      margin-bottom: 1rem;
+    }
+    #status {
+      color: #f33;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -30,18 +36,15 @@
   <h1>IPTV con Proxy Cloudflare Worker y Clappr</h1>
 
   <div id="player"></div>
+  <div id="status"></div>
 
   <script>
-    // URL base de tu proxy
     const proxyBase = "https://iptv-proxystreamverse.fraelvillegasplay9.workers.dev/?url=";
-
-    // Stream original HTTP (puedes cambiar esta URL)
     const originalStream = "http://playtvpremium.xyz:8080/live/595991351780py/090325play/878883.m3u8";
-
-    // Construir URL final para cargar por proxy HTTPS
     const proxiedStream = proxyBase + encodeURIComponent(originalStream);
 
-    // Crear el reproductor Clappr
+    const statusDiv = document.getElementById('status');
+
     const player = new Clappr.Player({
       source: proxiedStream,
       parentId: "#player",
@@ -50,6 +53,14 @@
       autoPlay: true,
       mute: false,
       controls: true,
+    });
+
+    player.on(Clappr.Events.PLAYER_ERROR, () => {
+      statusDiv.textContent = "Error: No se pudo cargar el stream.";
+    });
+
+    player.on(Clappr.Events.PLAYER_PLAY, () => {
+      statusDiv.textContent = "";
     });
   </script>
 
